@@ -1,0 +1,88 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+    .bubble-tail {
+        clip-path: polygon(0% 0%, 100% 0%, 50% 100%);
+    }
+}
+
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+
+  background-image: url("/cakes.jpg");
+  background-repeat: repeat;
+
+
+  height: 100%;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  --easing: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+body, #root {
+    height: 100%;
+}
+
+.message {
+    animation: message-pop-up 1.6s var(--easing);
+}
+@keyframes message-pop-up {
+    0% {
+        transform: translateY(100%);
+    }
+    100% {
+        transform: translateY(0%);
+    }
+}
+
+.message > div {
+    animation: message-pop-in 1.6s var(--easing);
+}
+@keyframes message-pop-in {
+    0% {
+        transform: scale(0);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.message .name {
+    animation: message-pop-name 1.4s var(--easing) 0.7s 1 normal forwards;
+    opacity: 0;
+}
+@keyframes message-pop-name {
+    0% {
+        transform: translateX(-90%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0%);
+        opacity: 1;
+    }
+}
+
+.message .timestamp {
+    animation: message-pop-timestamp 1.4s var(--easing) 0.7s 1 normal forwards;
+    opacity: 0;
+}
+@keyframes message-pop-timestamp {
+    0% {
+        transform: translateX(-40%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0%);
+        opacity: 1;
+    }
+}
